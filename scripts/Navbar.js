@@ -2,7 +2,7 @@
 function renderNavbar(activePage) {
 
     const links = [
-        { name: "Home", file: "Home.html" },
+        { name: "Home", file: "index.html" },
         { name: "About", file: "About.html" },
         { name: "Short Films", file: "Short-Films.html" },
         { name: "Broadcasting", file: "Broadcasting.html" },
