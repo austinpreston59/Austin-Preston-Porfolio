@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHC47J4807"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PHC47J4807');
+        </script>
+
+        <!-- View Point -->
+        <meta name = "viewport" content= "width=device-width, initial-scale=1">
+
+        <title>Austin Preston Portfolio - Music Videos</title>
+
+        <!-- Meta -->
+        <meta name="description" content="View Austin Preston's music video projects, showcasing his visual style and collaboration with artists to bring music to life on screen.">
+        <meta name="keywords" content="music videos, Austin Preston, filmmaker, music video production, visual style, artist collaboration">
+        <meta name="author" content="Austin Preston">
+
+        <!-- Website Icon -->
+        <link rel="icon" type="images/x-icon" href="images/Website_Icon_Transparent.png">
+
+        <!-- Bootstrap CSS (CDN) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+        <!--links to css -->
+        <link rel="stylesheet" href="main.css"/>
+        <link rel="stylesheet" href="mobile.css"/>
+        <link rel="stylesheet" href="tablet.css"/>
+        <link rel="stylesheet" href="desktop.css"/>
+
+        <!--Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Play:wght@400;700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>    
+        <!--Header and Navbar-->
+        <header>
+            <nav id="navbarContainer"></nav>
+        </header>
+
+        <div class="container">
+            <div id="location">
+                <h1 id="infoText">Music Videos</h1>
+            </div>
+        </div>
+
+        <!--Cards-->
+        <div class="container">
+            <div id="card-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footerContainer"></footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+        <script src="scripts/Footer.js"></script>
+        <script src="scripts/Navbar.js"></script>
+        <script src="scripts/MusicVideos-Card-Render.js"></script>
+        <script>
+            renderNavbar("Music Videos");
+        </script>
+        <script>
+            // Function to check if the card is in the viewport (when top of card enters)
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) && // Trigger when the top of the card enters the viewport
+                    rect.left >= 0 &&
+                    rect.bottom >= 0 && // Ensure the bottom of the card is still below the viewport (it doesn't need to be fully visible)
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Function to add the 'visible' class to cards that are in view
+            function checkScroll() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach((card) => {
+                    if (isInViewport(card)) {
+                        card.classList.add('visible');
+                    }
+                });
+            }
+
+            // Trigger scroll check on page load and during scroll
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('load', checkScroll); // Also check when the page loads
+        </script>
+    </body>
+</html>
